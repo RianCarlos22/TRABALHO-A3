@@ -1,9 +1,13 @@
 :root {
   --primary: #2e7d32;
+  --primary-dark: #1b5e20;
   --secondary: #ff8f00;
   --light: #f5f5f5;
   --dark: #333;
+  --gray: #757575;
+  --error: #d32f2f;
   --border-radius: 8px;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 * {
@@ -26,11 +30,16 @@ body {
   padding: 20px 0;
 }
 
+.hidden {
+  display: none !important;
+}
+
 .header {
   background-color: var(--primary);
   color: white;
   padding: 2rem 0;
   text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .header h1 {
@@ -38,12 +47,43 @@ body {
   margin-bottom: 0.5rem;
 }
 
+.header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
 .card {
   background: white;
   padding: 1.5rem;
   border-radius: var(--border-radius);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow);
   margin-bottom: 2rem;
+}
+
+.btn {
+  display: inline-block;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+.btn.secondary {
+  background-color: var(--gray);
+}
+
+.btn.secondary:hover {
+  background-color: #616161;
 }
 
 .diet-grid {
@@ -64,6 +104,7 @@ body {
 .diet-card:hover {
   border-color: var(--primary);
   transform: translateY(-5px);
+  box-shadow: var(--box-shadow);
 }
 
 .diet-card h3 {
@@ -71,37 +112,77 @@ body {
   margin-bottom: 0.5rem;
 }
 
+.diet-card p {
+  font-size: 0.95rem;
+  color: var(--gray);
+}
+
+#health-form {
+  margin-top: 1rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
 .form-group {
   margin-bottom: 1rem;
+  flex: 1;
 }
 
 .form-group label {
   display: block;
   margin-bottom: 0.5rem;
-  font-weight: bold;
+  font-weight: 600;
+  color: var(--dark);
 }
 
-.form-group input, 
+.form-group input,
 .form-group select {
   width: 100%;
   padding: 0.75rem;
   border: 1px solid #ddd;
   border-radius: 4px;
-}
-
-.btn {
-  background-color: var(--primary);
-  color: white;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
-  cursor: pointer;
   font-size: 1rem;
-  transition: background-color 0.3s;
 }
 
-.btn:hover {
-  background-color: #1b5e20;
+.form-group input:focus,
+.form-group select:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.checkbox-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.5rem;
+}
+
+.checkbox-option {
+  display: flex;
+  align-items: center;
+  background: #f5f5f5;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.checkbox-option input {
+  width: auto;
+  margin-right: 0.5rem;
+}
+
+input:invalid,
+select:invalid {
+  border-color: var(--error);
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+  gap: 1rem;
 }
 
 .metrics {
@@ -119,6 +200,51 @@ body {
 
 .metric h3 {
   color: var(--dark);
+  margin-bottom: 0.25rem;
+}
+
+.metric p {
+  font-size: 0.9rem;
+  color: var(--gray);
+}
+
+.recommendation-section {
+  margin-top: 2rem;
+}
+
+.recommendation-section h3 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.food-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.food-category {
+  background: white;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.food-category h4 {
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.food-category ul {
+  list-style-position: inside;
+  padding-left: 0;
+}
+
+.food-category li {
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
 }
 
 .footer {
@@ -129,12 +255,22 @@ body {
   margin-top: 2rem;
 }
 
-.hidden {
-  display: none;
-}
-
 @media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
   .diet-grid {
     grid-template-columns: 1fr;
+  }
+
+  .form-buttons {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+    margin-bottom: 0.5rem;
   }
 }
