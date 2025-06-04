@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NutriFácil - Planejador de Dietas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Cabeçalho -->
+  <header class="header">
+    <div class="container">
+      <h1>NutriFácil</h1>
+      <p>Seu assistente personalizado para dietas saudáveis</p>
+    </div>
+  </header>
+
+  <!-- Conteúdo Principal -->
+  <main class="container">
+    <!-- Seção: Seleção de Dieta -->
+    <section id="diet-section" class="card">
+      <h2>Escolha sua dieta</h2>
+      <div class="diet-grid">
+        <div class="diet-card" data-diet="mediterranean">
+          <h3>Mediterrânea</h3>
+          <p>Azeite, peixes, grãos integrais. Foco em saúde cardiovascular.</p>
+        </div>
+        <div class="diet-card" data-diet="lowcarb">
+          <h3>Low Carb</h3>
+          <p>Redução de carboidratos. Ideal para emagrecimento.</p>
+        </div>
+        <!-- Adicione as outras dietas (Cetogênica, Vegetariana) -->
+      </div>
+    </section>
+
+    <!-- Seção: Dados do Usuário -->
+    <section id="form-section" class="card hidden">
+      <h2>Seus dados</h2>
+      <form id="health-form">
+        <div class="form-group">
+          <label for="weight">Peso (kg):</label>
+          <input type="number" id="weight" required>
+        </div>
+        <div class="form-group">
+          <label for="height">Altura (cm):</label>
+          <input type="number" id="height" required>
+        </div>
+        <!-- Adicione os outros campos (idade, sexo, objetivo, alergias) -->
+        <button type="submit" class="btn">Gerar Plano</button>
+      </form>
+    </section>
+
+    <!-- Seção: Resultados -->
+    <section id="results-section" class="card hidden">
+      <h2>Seu Plano Alimentar</h2>
+      <div class="metrics">
+        <div class="metric">
+          <h3>TMB: <span id="tmb-result">0</span> kcal</h3>
+          <p>Taxa Metabólica Basal</p>
+        </div>
+        <div class="metric">
+          <h3>IMC: <span id="bmi-result">0</span></h3>
+          <p id="bmi-category">Peso normal</p>
+        </div>
+      </div>
+      <div id="food-recommendations">
+        <!-- Recomendações serão inseridas via JavaScript -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="footer">
+    <p>© 2025 NutriFácil | Projeto Acadêmico</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
