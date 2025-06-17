@@ -21,4 +21,4 @@ Aplicativo de nutrição desenvolvido como projeto acadêmico, com o objetivo de
 - Organização de código com arquivos separados:
   - `main.js` (navegação)
   - `storage.js` (salvar e carregar dados)
-  - `cadastro.js` e `receitas.js` (funcionalidades específicas)
+  - `cadastro.js` e `resultado.js` (funcionalidades específicas)
