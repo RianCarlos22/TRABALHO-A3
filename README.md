@@ -12,3 +12,13 @@ Aplicativo de nutrição desenvolvido como projeto acadêmico, com o objetivo de
 - Navegação entre telas com JavaScript
 - Layout adaptado para dispositivos móveis
 - Execução no Android usando Capacitor e Android Studio
+
+## 🛠️ Tecnologias Utilizadas
+
+- HTML5, CSS3 e JavaScript
+- Android Studio + Capacitor
+- Armazenamento local com `localStorage`
+- Organização de código com arquivos separados:
+  - `main.js` (navegação)
+  - `storage.js` (salvar e carregar dados)
+  - `cadastro.js` e `receitas.js` (funcionalidades específicas)
